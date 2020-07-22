@@ -14,8 +14,8 @@ public class Computer_Page extends Util {
        }
 
 
-        public void usserShouldClickOnDesktop() {
-            //User should email a friend successfully
+        public void userShouldClickOnDesktop() {
+            //User should click on desktops
             clickOnElement(_clickDesktop);
 
 

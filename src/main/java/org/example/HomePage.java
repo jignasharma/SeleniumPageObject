@@ -3,29 +3,60 @@ package org.example;
 import org.openqa.selenium.By;
 
 public class HomePage extends Util{
-  //Homepage Locator
-  private By _registrationButton = By.className("ico-register");
-  private By _homePageTitle      = By.xpath("//div[@class=\"topic-block-title\"]/h2");//user is on homepage
-  private By _Books              = By.linkText("Books");
-  private String expected        = "Welcome to our store";
+  private By _clickOnSearchButton = By.xpath("//input[@class=\"button-1 search-box-button\"]");
+  private By _registerButton      = By.className("ico-register");
+  private By _welcomeTileText     = By.xpath("//div[@class=\"topic-block-title\"]/h2");
+  private By _Books               = By.linkText("Books");
+  String expected                 = "Welcome to our store";
+  private By _newOnlineStore      = By.linkText("New online store is open!");
+  private By _Facebook            = By.linkText("Facebook");
+  private By _currencyButton      = By.id("customerCurrency");
+  private By _Euro                = By.xpath("//option[@value=\"https://demo.nopcommerce.com/changecurrency/6?returnUrl=%2F\"]");
+  String getExpected              = "Euro";
 
-  public void verifyUserIsOnHomepage() {
+  public void verifyUserIsOnHomepage()
 
-    assertTextMessage(getTextFromElement(_homePageTitle), expected, "User is on Homepage");
+  {
+    // verifying if user is on home page
+    assertTextMessage(getTextFromElement(_welcomeTileText),expected,"user on home page");
 
-  }//Comparing the expected and actual text message
+  }
+  public void clickOnRegisterButton()
+  {
+    clickOnElement(_registerButton);// user clicks on register button
+
+  }
+  public void clickOnBookCategory()
+  {
+    clickOnElement(_Books);// user clicks on book category page
+  }
+
+  public  void  userShouldClickOnSearchButton()
+  //Method for user should click on search button
+  {
+    clickOnElement(_clickOnSearchButton);
+
+  }
+  public void userClickOnNewOnlineStore()
+  {
+    clickOnElement(_newOnlineStore);
+  }
+  public void userShouldClickOnFacebook() {
+    clickOnElement(_Facebook);
+    driver.getWindowHandle();
 
 
-public void clickOnRegisterButton()
-{
-  clickOnElement(_registrationButton);
+  }
+  public void userShouldClickOnCurrencyButton()
+  {
+    clickOnElement(_currencyButton);
+    clickOnElement(_Euro);
+
+    assertTextMessage(getTextFromElement(_Euro), getExpected, "user don't see euro symbol ");
+  }
+
 
 }
-public void verifyUserIsOnBookPage(){ assertURL("Books");
-    //To verify user is on books page
-
-}
 
 
 
-}
