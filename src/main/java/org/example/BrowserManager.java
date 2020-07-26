@@ -13,7 +13,7 @@ public class BrowserManager extends Util
         driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        //driver.get("https://demo.nopcommerce.com");
+        driver.get("https://demo.nopcommerce.com");
         driver.get("https://chercher.tech/practice/frames-example-selenium-webdriver");
 
     }
